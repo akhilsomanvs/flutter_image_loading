@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_arch_utils/flutter_arch_utils.dart';
+import 'package:flutter_image_loading/views/homeScreen/widgets/search_bar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -23,7 +24,10 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
+                  SearchBarWidget(
+                    onSearchButtonClicked: (s) {},
+                  ),
+                  Expanded(child: Container()),
                 ],
               ),
             ),
