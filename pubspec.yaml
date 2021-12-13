@@ -29,11 +29,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_arch_utils:
+    git:
+      url: git://github.com/akhilsomanvs/flutter_arch_utils.git
+  http: ^0.13.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  get: ^4.5.1
 
 dev_dependencies:
   flutter_test:
