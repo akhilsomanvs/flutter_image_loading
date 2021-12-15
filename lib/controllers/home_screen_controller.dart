@@ -15,7 +15,7 @@ class HomeScreenController extends GetxController {
 
   getMoreImages(String searchTerm) async {
     _imageList.add(imageLoadingObject);
-    if (isLoading ) {
+    if (isLoading) {
       return;
     }
     isLoading = true;
@@ -29,9 +29,13 @@ class HomeScreenController extends GetxController {
       if (apiResponse.hits.isNotEmpty) {
         _imageList.addAll(apiResponse.hits);
       }
-    } else if (response.status == Status.ERROR) {
-    }
+    } else if (response.status == Status.ERROR) {}
     isLoading = false;
+    update();
+  }
+
+  void clearImageList() {
+    _imageList.clear();
     update();
   }
 }

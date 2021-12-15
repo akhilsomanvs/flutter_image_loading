@@ -25,14 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // controller.getMoreImages("");
     scrollController = new ScrollController()..addListener(_scrollListener);
     super.initState();
   }
 
   _scrollListener() {
     if (scrollController.position.maxScrollExtent == scrollController.offset) {
-      print(scrollController.position.extentAfter);
       if (scrollController.position.extentAfter <= 0) {
         controller.getMoreImages(searchTerm);
       }
@@ -69,6 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           SearchBarWidget(
                             onSearchButtonClicked: (s) {
                               debugPrint("CLICKED");
+                              if(searchTerm!=s){
+                                controller.clearImageList();
+                              }
                               searchTerm = s;
                               controller.getMoreImages(s);
                             },
