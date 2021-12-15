@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_arch_utils/flutter_arch_utils.dart';
 
-class SearchBarWidget extends StatelessWidget {
+class SearchBarWidget extends StatefulWidget {
   SearchBarWidget({Key? key, required this.onSearchButtonClicked}) : super(key: key);
 
   Function(String) onSearchButtonClicked;
 
+  @override
+  State<SearchBarWidget> createState() => _SearchBarWidgetState();
+}
+
+class _SearchBarWidgetState extends State<SearchBarWidget> {
   final TextStyle _textStyle = TextStyle(fontSize: 12.sp());
-  final TextEditingController _textEditingController = TextEditingController();
+
+  late final TextEditingController _textEditingController;
+
+  @override
+  void initState() {
+    _textEditingController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +54,12 @@ class SearchBarWidget extends StatelessWidget {
           HSpace(8),
           OutlinedButton(
             onPressed: () {
-              try{
+              try {
                 SystemChannels.textInput.invokeMethod('TextInput.hide');
-              }catch(e){
-
-              }
+              } catch (e) {}
               String searchTerm = _textEditingController.text;
               if (searchTerm.trim().isNotEmpty) {
-                onSearchButtonClicked(searchTerm.trim());
+                widget.onSearchButtonClicked(searchTerm.trim());
               }
             },
             style: OutlinedButton.styleFrom(backgroundColor: Colors.green),
