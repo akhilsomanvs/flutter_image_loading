@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_arch_utils/flutter_arch_utils.dart';
 
 class SearchBarWidget extends StatelessWidget {
@@ -41,6 +42,11 @@ class SearchBarWidget extends StatelessWidget {
           HSpace(8),
           OutlinedButton(
             onPressed: () {
+              try{
+                SystemChannels.textInput.invokeMethod('TextInput.hide');
+              }catch(e){
+
+              }
               String searchTerm = _textEditingController.text;
               if (searchTerm.trim().isNotEmpty) {
                 onSearchButtonClicked(searchTerm.trim());

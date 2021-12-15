@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_arch_utils/flutter_arch_utils.dart';
 import 'package:flutter_image_loading/controllers/home_screen_controller.dart';
 import 'package:flutter_image_loading/models/image_response_models.dart';
