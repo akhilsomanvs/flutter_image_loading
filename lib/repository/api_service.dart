@@ -45,7 +45,7 @@ class ApiService {
         throw UnauthorisedException(response.body.toString());
       case 500:
       default:
-        throw FetchDataException('Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+        throw FetchDataException('Error occurred while Communication with Server with StatusCode : ${response.statusCode}');
     }
   }
 }
