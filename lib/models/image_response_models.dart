@@ -6,12 +6,12 @@ class ImageApiResponse {
   });
   late final int total;
   late final int totalHits;
-  late final List<Hits> hits;
+  late final List<ImageHits> hits;
 
   ImageApiResponse.fromJson(Map<String, dynamic> json){
     total = json['total'];
     totalHits = json['totalHits'];
-    hits = List.from(json['hits']).map((e)=>Hits.fromJson(e)).toList();
+    hits = List.from(json['hits']).map((e)=>ImageHits.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -23,8 +23,8 @@ class ImageApiResponse {
   }
 }
 
-class Hits {
-  Hits({
+class ImageHits {
+  ImageHits({
     required this.id,
     required this.pageURL,
     required this.type,
@@ -71,7 +71,7 @@ class Hits {
   late final String user;
   late final String userImageURL;
 
-  Hits.fromJson(Map<String, dynamic> json){
+  ImageHits.fromJson(Map<String, dynamic> json){
     id = json['id'];
     pageURL = json['pageURL'];
     type = json['type'];

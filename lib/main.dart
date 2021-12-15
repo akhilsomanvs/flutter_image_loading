@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_loading/controllers/home_screen_controller.dart';
 import 'package:flutter_image_loading/views/homeScreen/home_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  ControllerBinding().dependencies();
   runApp(const MyApp());
 }
 
@@ -17,5 +21,12 @@ class MyApp extends StatelessWidget {
       ),
       home: HomeScreen(),
     );
+  }
+}
+
+class ControllerBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.put(HomeScreenController(), permanent: true);
   }
 }
