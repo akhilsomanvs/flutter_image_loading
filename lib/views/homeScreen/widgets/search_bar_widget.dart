@@ -26,6 +26,7 @@ class SearchBarWidget extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: _textEditingController,
+              style: _textStyle,
               decoration: InputDecoration(
                 hintStyle: _textStyle.copyWith(color: Colors.grey),
                 hintText: "Type Here",
