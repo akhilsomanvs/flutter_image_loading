@@ -15,7 +15,7 @@ class ApiService {
     var responseJson;
     try {
       final String urlEncodedSearchTerm = Uri.encodeComponent(searchTerm);
-      String apiUrl = _url.replaceAll(AppConstants.LITERAL_API_KEY, API_KEY);
+      String apiUrl = _url.replaceAll(AppConstants.LITERAL_API_KEY, ApiConstants.API_KEY);
       String searchQ = _searchQuery.replaceAll(AppConstants.LITERAL_SEARCH_TERM, urlEncodedSearchTerm);
       String paginationUrl = _pagination.replaceAll(AppConstants.LITERAL_PAGE, page.toString()).replaceAll(AppConstants.LITERAL_PER_PAGE, perPageCount.toString());
       String finalUrl = "";
